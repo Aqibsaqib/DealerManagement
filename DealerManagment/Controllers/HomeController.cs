@@ -5,33 +5,44 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DealerManagment.Models;
+using Microsoft.AspNetCore.Identity;
+using DealerManagment.Data;
 
 namespace DealerManagment.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly UserManager<ApplicationUser> _userManager;
+
+        public HomeController(UserManager<ApplicationUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Current_Inventory", "Inventory");
+            }
             return View();
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> Profile()
         {
-            ViewData["Message"] = "Your application description page.";
+            var userId = _userManager.GetUserId(HttpContext.User);
 
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            if (userId == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            {
+                ApplicationUser user = await _userManager.FindByIdAsync(userId);
+                return View(user);
+            }
+       
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

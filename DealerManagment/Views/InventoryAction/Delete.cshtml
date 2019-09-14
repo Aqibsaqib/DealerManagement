@@ -1,0 +1,19 @@
+﻿@model DealerManagment.Models.InventoryModels.Inventory
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container text-center mt-4">
+
+    <h1>Are you sure you want to delete this?</h1>
+
+    <h2>@Html.DisplayFor(model => model.VIN)</h2>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="InventoryId" />
+        <input type="submit" value="Delete" class="btn btn-danger btn-lg btn-block" />
+        <br />
+        <a asp-action="Current_Inventory" asp-controller="Inventory" class="btn btn-secondary btn-lg btn-block">Back to List</a>
+    </form>
+</div>

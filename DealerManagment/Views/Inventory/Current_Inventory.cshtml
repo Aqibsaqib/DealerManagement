@@ -1,0 +1,75 @@
+﻿@model List<DealerManagment.Models.InventoryModels.Inventory>
+
+@{
+    ViewData["Title"] = "Current_Inventory";
+
+}
+
+<p>
+    <a class="btn btn-primary mt-4" asp-action="Decode_VIN" asp-controller="InventoryAction">+ Add Vehicle</a>
+</p>
+
+<div class="row mb-2">
+    <div class="col">
+        <div class="card shadow">
+            <div class="card-header border-0">
+                <h1 class="mb-0 text-center">Current Inventory</h1>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-striped" id="currentInventoryTable">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.ElementAt(0).VIN)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.ElementAt(0).Vehicle.Year)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.ElementAt(0).Vehicle.Make)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.ElementAt(0).Vehicle.Model)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VIN)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Vehicle.Year)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Vehicle.Make)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Vehicle.Model)
+                                </td>
+
+                                <td>
+                                    <a class="btn btn-info"
+                                       asp-action="Edit"
+                                       asp-controller="InventoryAction"
+                                       asp-route-id="@item.InventoryId"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-success"
+                                       asp-action="Sell"
+                                       asp-controller="InventoryAction"
+                                       asp-route-id="@item.InventoryId">$ Mark Sold</a>
+                                    <a class="btn btn-danger"
+                                       asp-action="Delete"
+                                       asp-controller="InventoryAction"
+                                       asp-route-id="@item.InventoryId"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,28 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// For JQUERY DataTable initilzation 
 
-// Write your JavaScript code.
+$(document).ready(function () {
+    $('#currentInventoryTable').DataTable({
+        searching: false,
+        language: {
+            paginate: {
+                next: '&#8594;', // or '→'
+                previous: '&#8592;' // or '←' 
+            }
+        }
+    });
+
+    $('#soldInventoryTable').DataTable({
+        searching: false,
+        language: {
+            paginate: {
+                next: '&#8594;', // or '→'
+                previous: '&#8592;' // or '←' 
+            }
+        }
+    });
+
+    setTimeout(function () {
+        $('#myModel').modal('hide');
+    }, 5000);
+
+});

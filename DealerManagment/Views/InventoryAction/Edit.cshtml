@@ -1,0 +1,78 @@
+﻿@model DealerManagment.Models.InventoryModels.Inventory
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row mt-3">
+    <div class="col-xl-8 order-xl-1">
+        <div class="card bg-secondary shadow mb-3">
+            <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                    <div class="col-8 ml-2 center">
+                        <h3 class="text-center">Edit:  @Model.Vehicle.Year @Model.Vehicle.Make @Model.Vehicle.Model </h3>
+                        <h4 class="mb-0 text-center">VIN: @Model.VIN</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="InventoryId" />
+
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="Mileage" class="form-control-label"></label>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-tachometer"></i></span>
+                                        <input class="form-control form-control-alternative" asp-for="Mileage" type="text">
+                                    </div>
+                                    <span asp-validation-for="Mileage" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="PurchaseDate" class="form-control-label"></label>
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input class="form-control" asp-for="PurchaseDate" placeholder="Select date" type="date">                                    
+                                    </div>
+                                    <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="PurchasePrice" class="form-control-label"></label>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-usd"></i></span>
+                                        <input asp-for="PurchasePrice" class="form-control form-control-alternative" />
+                                    </div>
+                                    <span asp-validation-for="PurchasePrice" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+
+                    <!--SUBMIT-->
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-default btn-block img-center" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Current_Inventory" asp-controller="Inventory" class="btn btn-primary"><i class="fa fa-long-arrow-left"></i> Back</a>
+</div>

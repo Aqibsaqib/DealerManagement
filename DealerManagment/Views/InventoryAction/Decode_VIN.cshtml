@@ -1,0 +1,40 @@
+﻿@model DealerManagment.Models.InventoryModels.Inventory
+
+@{
+    ViewData["Title"] = "Decode_VIN";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add_Inventory</title>
+</head>
+<body>
+
+    <h2 class="mt-4">New Vehicle</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Decode_VIN">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="UserId" value=@ViewData["UserId"] />
+                <div class="form-group">
+                    <label asp-for="VIN" class="control-label"></label>
+                    <input asp-for="VIN" class="form-control" />
+                    <span asp-validation-for="VIN" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" value="Add" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Current_Inventory" asp-controller="Inventory">Back to Inventory</a>
+    </div>
+
+</body>
+</html>

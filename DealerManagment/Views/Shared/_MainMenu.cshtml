@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "_MainMenu";
+}
+
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+    <div class="container-fluid">
+
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Brand -->
+        <a class="navbar-brand pt-0">
+            <img src="~/images/car.png" class="navbar-brand-img" alt="...">
+        </a>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <!-- Dealership Name -->
+            <h3 class="text-center">@User.FindFirst("DealershipName").Value</h3>
+        }
+      
+
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+            <!-- Collapse header -->
+            <div class="navbar-collapse-header d-md-none">
+                <div class="row">
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <ul class="navbar-nav">
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("Current_Inventory", "Inventory")">
+                            <i class="ni ni-bullet-list-67 text-red"></i> Current Inventory
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="@Url.Action("Sold_Inventory", "Inventory")">
+                            <i class="ni ni-bullet-list-67 text-red"></i> Sold Inventory
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="@Url.Action("Profile", "Home")">
+                            <i class="ni ni-single-02 text-yellow"></i> User profile
+                        </a>
+                    </li>
+                }
+
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Identity/Account/Login">
+                            <i class="ni ni-key-25 text-info"></i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Identity/Account/Register">
+                            <i class="ni ni-circle-08 text-pink"></i> Register
+                        </a>
+                    </li>
+                }
+            </ul>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <!-- Divider -->
+                <hr class="my-3">
+
+                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+                    <ul class="navbar-nav mb-md-3">
+
+                        <li>
+                            <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+                        </li>
+                    </ul>
+                </form>
+            }
+        </div>
+    </div>
+</nav>
+
