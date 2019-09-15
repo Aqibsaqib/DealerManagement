@@ -3,7 +3,7 @@
 ###############################################################################
 * text=auto
 * linguist-vendored
-*.html linguist-vendored
+*.html linguist-vendored=true
 
 ###############################################################################
 # Set default behavior for command prompt diff.
