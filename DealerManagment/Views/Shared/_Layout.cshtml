@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - DealerManagment</title>
 
-    <environment include="Development">
+    <environment include="Development, Staging, Production">
         @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="~/bower_components/font-awesome/css/font-awesome.min.css">
@@ -18,22 +18,10 @@
         <!--Custom CSS-->
         <link type="text/css" href="~/css/custom.css" rel="stylesheet">
     </environment>
-    <environment exclude="Development">
+    <environment exclude="Development, Staging, Production">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-    </environment>
-    <environment include="Staging, Production">        
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="~/bower_components/font-awesome/css/font-awesome.min.css">
-        <!--Icons-->
-        <link href="~/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
-        <!--Jquery Datatables-->
-        <link rel="stylesheet" href="~/js/plugins/jquery-datatables/dataTables.bootstrap4.css" />
-        <!-- Theme style -->
-        <link type="text/css" href="~/css/argon-dashboard.min.css" rel="stylesheet">
-        <!--Custom CSS-->
-        <link type="text/css" href="~/css/custom.css" rel="stylesheet">
     </environment>
 </head>
 
@@ -51,7 +39,7 @@
 
     <!--SCRIPTS-->
 
-    <environment include="Development">
+    <environment include="Development,Staging, Production">
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
         <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
@@ -62,7 +50,7 @@
         <script src="~/js/argon-dashboard.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
-    <environment exclude="Development">
+    <environment exclude="Development,Staging, Production">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery"
@@ -77,17 +65,7 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-    <environment include="Staging, Production">
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/plugins/jquery-datatables/datatables.js"></script>
-        <script src="~/js/plugins/jquery-datatables/dataTables.bootstrap4.min.js"></script>
-
-        <script src="~/js/argon-dashboard.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
+   
 
     @RenderSection("Scripts", required: false)
 
