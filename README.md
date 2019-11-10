@@ -2,11 +2,11 @@
 Simple web application for managing a used car inventory 
 
 # Features
--User Authentication
--Add New Inventory
--Edit Inventory
--Delete Inventory
--Sell Inventory
+-User Authentication\
+-Add New Inventory\
+-Edit Inventory\
+-Delete Inventory\
+-Sell Inventory\
 -View Sold Inventory/Profit
 
 # Screenshots
