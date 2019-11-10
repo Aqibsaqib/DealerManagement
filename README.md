@@ -4,7 +4,7 @@ Simple web application for managing a used car inventory
 # Languages/Frameworks
 -ASP.net Core MVC\
 -Bootstrap\
--Javascript\
+-Javascript
 
 # Features
 -User Authentication\
