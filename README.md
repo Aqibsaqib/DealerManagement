@@ -24,5 +24,8 @@ Current Inventory Screen
 Edit Inventory Screen
 ![Alt text](/Screenshots/Edit_Page.png?raw=true "Optional Title")
 
+Sell Inventory Screen
+![Alt text](/Screenshots/Sell_Page.png?raw=true "Optional Title")
+
 Sold Inventory Page
 ![Alt text](/Screenshots/Sold_Inventory.png?raw=true "Optional Title")
