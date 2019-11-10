@@ -1,5 +1,10 @@
 # DealerManagement
-Simple web application for managing a used car inventory 
+Simple web application for managing a used car inventory
+
+# Languages/Frameworks
+-ASP.net Core MVC\
+-Bootstrap\
+-Javascript\
 
 # Features
 -User Authentication\
